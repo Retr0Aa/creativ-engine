@@ -9,6 +9,8 @@ workspace "CreativEngine"
         targetdir "bin/Engine/%{cfg.buildcfg}"
         location "CreativEngine"
 
+        nuget { "Newtonsoft.Json:13.0.3" }
+
         files { "CreativEngine/src/**.cs" }
 
         links { "Retr0Log", "System.Drawing", "System.Windows.Forms" }

@@ -13,6 +13,8 @@ namespace CreativEditor
         static void Main()
         {
             EngineManager engineManager = new EngineManager();
+            engineManager.SaveEditorProject();
+            engineManager.LoadEditorProject("C:/Users/retr0/Documents/test.crproj");
 
             Application.Run(new Form());
         }
