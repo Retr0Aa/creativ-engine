@@ -7,9 +7,5 @@
 /*/obj
 
 # Premake Generated
-/CreativEngine/CreativEngine.csproj
-/CreativEditor/CreativEditor.csproj
-/BuildGame/BuildGame.csproj
-/Dependencies/Retr0Log/Retr0Log.csproj
 **/*.csproj
 CreativEngine.sln
