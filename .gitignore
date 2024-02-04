@@ -1,0 +1,7 @@
+# Visual Studio Dir
+/.vs
+/*/.vs
+
+# Build Dirs
+/*/bin
+/*/obj
