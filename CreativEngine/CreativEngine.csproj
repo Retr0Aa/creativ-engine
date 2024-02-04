@@ -49,5 +49,11 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dependencies\Retr0Log\RetroLog.csproj">
+      <Project>{5557a673-372e-4a62-9be1-f47b8a8b440b}</Project>
+      <Name>RetroLog</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
