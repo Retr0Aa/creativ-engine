@@ -23,6 +23,10 @@ namespace CreativEngine
             engineLog.PrintLogLine("Log Loaded.", MessageType.Success);
 
             openedProject = new Project() { title = "Untitled Project", scenes = new List<Scene>() };
+
+            /*// Just For Testing
+            List<GameObject> gameObjects = new List<GameObject>() { new GameObject("My Object") };
+            openedProject.scenes.Add(new Scene() { name = "TestScene", gameObjects = gameObjects });*/
         }
 
         public bool SaveEditorProject()
@@ -30,7 +34,7 @@ namespace CreativEngine
             try
             {
                 var jsonString = JsonConvert.SerializeObject(openedProject);
-                File.WriteAllText("C:/Users/retr0/Documents/test.crproj", jsonString);
+                File.WriteAllText("C:/test.crproj", jsonString);
 
                 engineLog.PrintLogLine("Project Saved.", MessageType.Success);
 
@@ -38,7 +42,7 @@ namespace CreativEngine
             }
             catch (Exception ex)
             {
-                engineLog.PrintLogLine("Error Saving Project!:\n" + ex.Message, MessageType.Error);
+                engineLog.PrintLogLine("Error Saving Project!:\n\t" + ex.Message, MessageType.Error);
                 return false;
             }
         }
@@ -47,7 +51,7 @@ namespace CreativEngine
         {
             try
             {
-                openedProject = JsonConvert.DeserializeObject<Project>(projectPath);
+                openedProject = JsonConvert.DeserializeObject<Project>(File.ReadAllText(projectPath));
                 currentProjectPath = projectPath;
 
                 engineLog.PrintLogLine("Project Loaded.", MessageType.Success);

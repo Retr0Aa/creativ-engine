@@ -23,7 +23,7 @@ workspace "CreativEngine"
 
         files { "CreativEditor/src/**.cs" }
 
-        links { "System", "CreativEngine", "System.Drawing", "System.Windows.Forms" }
+        links { "MyGui", "System", "CreativEngine", "System.Drawing", "System.Windows.Forms" }
 
     group ""
     project "BuildGame"
@@ -38,3 +38,4 @@ workspace "CreativEngine"
 
     group "Dependecies"
     include "Dependencies/Retr0Log"
+    include "Dependencies/MyGui"
