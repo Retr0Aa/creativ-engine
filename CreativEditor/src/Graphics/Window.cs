@@ -25,5 +25,44 @@ namespace CreativEditor.Graphics
             form.Height = m_Height;
             form.Text = m_Title;
         }
+
+        public void SetupToolbar()
+        {
+            ToolStrip toolStrip = new ToolStrip();
+            toolStrip.Dock = DockStyle.Top;
+            toolStrip.GripStyle = ToolStripGripStyle.Hidden;
+
+            ToolStripDropDownButton fileDropdownMenu = new ToolStripDropDownButton();
+            fileDropdownMenu.Text = "File";
+            fileDropdownMenu.DropDownItemClicked += FileDropdownMenu_ItemClicked;
+            fileDropdownMenu.DropDownItems.Add("Save Project");
+
+            ToolStripDropDownButton editDropdownMenu = new ToolStripDropDownButton();
+            editDropdownMenu.Text = "Edit";
+            editDropdownMenu.DropDownItemClicked += EditDropdownMenu_ItemClicked;
+            editDropdownMenu.DropDownItems.Add("Create New Object");
+
+            toolStrip.Items.Add(fileDropdownMenu);
+            toolStrip.Items.Add(editDropdownMenu);
+
+            form.Controls.Add(toolStrip);
+        }
+
+        private void FileDropdownMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            if (e.ClickedItem.Text == "Save Project")
+            {
+                Program.engineManager.SaveEditorProject();
+            }
+        }
+
+        private void EditDropdownMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            if (e.ClickedItem.Text == "Create New Object")
+            {
+                Program.engineManager.openedProject.scenes[0].gameObjects.Add(new CreativEngine.Framework.GameObject("Empty Object"));
+                Program.objectOutlinePanel.RefreshDisplayedItems();
+            }
+        }
     }
 }

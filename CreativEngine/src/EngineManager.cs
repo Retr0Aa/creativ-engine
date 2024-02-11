@@ -34,7 +34,7 @@ namespace CreativEngine
             try
             {
                 var jsonString = JsonConvert.SerializeObject(openedProject);
-                File.WriteAllText("C:/test.crproj", jsonString);
+                File.WriteAllText(currentProjectPath, jsonString);
 
                 engineLog.PrintLogLine("Project Saved.", MessageType.Success);
 

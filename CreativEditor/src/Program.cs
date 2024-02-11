@@ -13,15 +13,19 @@ namespace CreativEditor
     {
         public static EngineManager engineManager = new EngineManager();
         
+        public static ObjectOutlinePanel objectOutlinePanel;
+
         static void Main()
         {
-            engineManager.LoadEditorProject("C:/test.crproj");
+            engineManager.LoadEditorProject("C:/test/test.crproj");
 
             Window window = new Window(1080, 720, "Creativengine Editor");
 
             // Panels
-            ObjectOutlinePanel objectOutlinePanel = new ObjectOutlinePanel();
+            objectOutlinePanel = new ObjectOutlinePanel();
             objectOutlinePanel.LoadPanel(window);
+
+            window.SetupToolbar();
 
             Application.Run(window.form);
         }
